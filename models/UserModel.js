@@ -2,12 +2,15 @@ import Sequelize from "sequelize";
 import db from "../config/Database.js";
 
 const User = db.define("user", {
-  nama: {
+  nim: {
     type: Sequelize.STRING,
     allowNull: false,
+    validate: {
+      is: /^[0-9]*$/  //pakai regex karena NIM tidak boleh text
+    }
   },
-  umur: {
-    type: Sequelize.INTEGER,
+  nama: {
+    type: Sequelize.STRING,
     allowNull: false,
   },
   email: {
